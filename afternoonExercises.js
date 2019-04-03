@@ -45,6 +45,45 @@ function maxSum(arr){
 
 // bigO complexity: O(n^2) / quadratic
 
-function mergeArrays(arr, arr2){
+function mergeArrays(arr1, arr2){
+  // return arr.concat(arr2).sort((a,b) => a - b);
   
+  let merged = [];
+  let i = 0;
+  let j = 0;
+
+  while(i < arr1.length -1 && j < arr2.length -1){
+    // if(arr1[i] === undefined){
+    //   merged.push(arr2[j]);
+    //   j++;
+    // }
+    // if(arr2[j] === undefined){
+    //   merged.push(arr1[i]);
+    //   i++;
+    // }
+    while(arr1[i] <= arr2[j]){
+
+      console.log('comparing', arr1[i], arr2[j]);
+      merged.push(arr1[i]);
+      // if(arr2[j] !== undefined){
+      //   merged.push(arr2[j]);
+      //   j++;
+      // }
+      i++;
+    }
+    while(arr2[j] <= arr1[i]){
+      console.log('comparing', arr2[j], arr1[i]);
+
+      merged.push(arr2[j]);
+      // if(arr1[i] !== undefined){
+      //   merged.push(arr1[i]);
+      //   i++;
+      // }
+      j++;
+    }
+  }
+  return merged;
 }
+
+
+console.log(mergeArrays([1, 3, 6, 8, 11], [2, 3, 5, 8, 9, 10]));
