@@ -7,7 +7,7 @@ function URLify(url){
       output += '%20';
     } else {
       output += url[i];
-    } 
+    }
   }
   return output;
 }
@@ -47,7 +47,7 @@ function maxSum(arr){
 
 function mergeArrays(arr1, arr2){
   // return arr.concat(arr2).sort((a,b) => a - b);
-  
+
   let merged = [];
   let i = 0;
   let j = 0;
@@ -63,7 +63,7 @@ function mergeArrays(arr1, arr2){
       if(arr2[j] <= arr1[i]){
         merged.push(arr2[j]);
         j++;
-      } 
+      }
     }else if(i < arr1.length){
       // if i is in bounds
       merged.push(arr1[i]);
@@ -77,5 +77,108 @@ function mergeArrays(arr1, arr2){
   return merged;
 }
 
+// bigO complexity: O(n) / linear
 
-console.log(mergeArrays([1, 3, 6, 8, 11], [2, 3, 5, 8, 9, 10]));
+function removeCharacters (victim, blacklist) {
+
+  let aftermath = '';
+
+  for (let c = 0; c < victim.length; c++) {
+
+    let charIsValid = true;
+
+    for (let b = 0; b < blacklist.length; b++) {
+
+      if (victim[c] === blacklist[b]) {
+        charIsValid = false;
+        break;
+      }
+    }
+
+    if (charIsValid) {
+      aftermath += victim[c];
+    }
+  }
+
+  return aftermath;
+}
+
+// bigO complexity: O(n^2) / polynomial (quadratic)
+
+function getProducts (nums) {
+
+  const products = [];
+
+  for (let a = 0; a < nums.length; a++) {
+
+    let product = 1;
+
+    for (let b = 0; b < nums.length; b++) {
+
+      if (b !== a) {
+        product *= nums[b];
+      }
+    }
+
+    products.push(product);
+  }
+
+  return products;
+}
+
+// bigO O(n2) polynomial (quadratic)
+
+function emptyRowAndCol (grid) {
+
+  let clone = [];
+
+  // loop grid rows
+  for (let i = 0; i < grid.length; i++) {
+
+    // clone row
+    clone[i] = [...grid[i]];
+  }
+
+  // loop over rows
+  for (let r = 0; r < grid.length; r++) {
+
+    const row = grid[r];
+
+    // loop over cols
+    for (let c = 0; c < row.length; c++) {
+
+      const col = row[c];
+
+      if (col === 0) {
+
+        // empty the row
+        for (let a = 0; a < row.length; a++) {
+          clone[r][a] = 0;
+        }
+
+        // empty the col
+        for (let b = 0; b < grid.length; b++) {
+          clone[b][c] = 0;
+        }
+      }
+    }
+  }
+
+  return clone;
+}
+
+const input = [
+  [1,0,1,1,0],
+  [0,1,1,1,0],
+  [1,1,1,1,1],
+  [1,0,1,1,1],
+  [1,1,1,1,1],
+];
+
+// bigO O(n2) polynomial (quadratic)
+
+
+function isRotation (str1, str2) {
+
+  // do something clever
+}
