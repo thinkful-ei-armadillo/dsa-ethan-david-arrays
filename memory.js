@@ -16,7 +16,13 @@ class Memory {
     return start;
   }
 
-  free(ptr) {}
+  free(ptr) {
+    // I believe in the "real world" this would remove the "protection" from
+    // the provided memory space, but since we have no protection implemented
+    // it doesn't have to do anything
+
+    // I believe this should also reset head
+  }
 
   copy(toIdx, fromIdx, size) {
     if (fromIdx === toIdx) {
