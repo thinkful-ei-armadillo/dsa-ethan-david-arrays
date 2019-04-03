@@ -1,3 +1,5 @@
+'use strict';
+
 const Array = require('./Array.js');
 
 function main(){
@@ -32,7 +34,7 @@ function main(){
   // length: 3, capacity: 12 , ptr: 3
   // console.log(arr);
 
-  console.log(arr.get(0));
+  // console.log(arr.get(0));
 
   arr.pop();
   arr.pop();
@@ -40,8 +42,10 @@ function main(){
 
   arr.push('tauhida');
 
-  console.log(arr.get(0));
-  // NaN because 'tauhida' is not a a Float64
+  // console.log(arr.get(0));
+  // NaN because 'tauhida' is not a Float64
 }
+
+// The purpose of _resize: It will find and allocate a block of contiguous memory equal in size to the size of the value passed to the _resize method. Then it copies the array at the original address and inserts it into memory at the new address. 
 
 main();

@@ -1,3 +1,5 @@
+'use strict';
+
 const Memory = require('./memory.js');
 
 const mem = new Memory();
