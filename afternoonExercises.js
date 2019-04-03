@@ -52,33 +52,25 @@ function mergeArrays(arr1, arr2){
   let i = 0;
   let j = 0;
 
-  while(i < arr1.length -1 && j < arr2.length -1){
-    // if(arr1[i] === undefined){
-    //   merged.push(arr2[j]);
-    //   j++;
-    // }
-    // if(arr2[j] === undefined){
-    //   merged.push(arr1[i]);
-    //   i++;
-    // }
-    while(arr1[i] <= arr2[j]){
-
-      console.log('comparing', arr1[i], arr2[j]);
+  while(i < arr1.length || j < arr2.length){
+    // while both counters are in bounds
+    if(i < arr1.length && j < arr2.length){
+      // if both counters are in bounds
+      if(arr1[i] <= arr2[j]){
+        merged.push(arr1[i]);
+        i++;
+      }
+      if(arr2[j] <= arr1[i]){
+        merged.push(arr2[j]);
+        j++;
+      } 
+    }else if(i < arr1.length){
+      // if i is in bounds
       merged.push(arr1[i]);
-      // if(arr2[j] !== undefined){
-      //   merged.push(arr2[j]);
-      //   j++;
-      // }
       i++;
-    }
-    while(arr2[j] <= arr1[i]){
-      console.log('comparing', arr2[j], arr1[i]);
-
+    } else if(j < arr2.length){
+      // if j is in bounds
       merged.push(arr2[j]);
-      // if(arr1[i] !== undefined){
-      //   merged.push(arr1[i]);
-      //   i++;
-      // }
       j++;
     }
   }
